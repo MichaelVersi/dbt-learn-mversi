@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: This is the source dataset for dbt learn
+    database: raw
+    tables:
+      - name: orders
+      - name: customers

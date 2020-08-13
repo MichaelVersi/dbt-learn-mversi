@@ -6,4 +6,21 @@ sources:
     database: raw
     tables:
       - name: orders
+        description:  '{{ doc("table_orders") }}'
+
+        columns: 
+           - name: id
+             description: This should be a unique identifier
+             tests:
+               - unique
+               - not_null
+
+           - name: status
+             description: Status of the order which can take several values
+             tests:
+               - accepted_values:
+                  values: ['placed', 'shipped', 'completed', 'returned', 'return_pending'] 
+               - not_null
+
       - name: customers
+        description: This is the source dataset for dbt learn
